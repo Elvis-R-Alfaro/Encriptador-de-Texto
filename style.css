@@ -1,0 +1,166 @@
+body{
+    max-width: 1440;
+    max-height: 1024px;
+    background: #F3F5FC;
+}
+
+.contenido{
+    display: flex;
+}
+
+.logo{
+    width: 10%;
+    margin: 40px 0 40px 40px;
+}
+
+.encriptarContenido{
+    width: 60%;
+    margin-top: 168px;
+    padding-right: 5%;
+}
+
+#txtTexto{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+    border: none;
+    background: transparent;
+}
+
+#txtTexto:focus{
+    outline: none;
+}
+
+form > div {
+    display: flex;
+    align-items: center;
+}
+
+.vectorImg{
+    height: 16px;
+    margin: 0 8px 1px 0;
+}
+
+.alertaTexto{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+
+    color: #495057;
+    opacity: 0.8;
+}
+
+#btnEncriptar{
+    width: 48%;
+    height: 67px;
+    padding: 24px;
+    gap: 8px;
+    background: #0A3871;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+
+#btnDesencriptar{
+    width: 48%;
+    height: 67px;
+    padding: 24px;
+    margin: 0 0 0 2.6%;
+    gap: 8px;
+    background: #D8DFE8;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #0A3871;
+}
+
+.desencriptarContenido{
+    width: 40%;
+    text-align: center;    
+
+    background: #fff;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+    margin: 40px 3% 40px 0;
+}
+
+.sinCargar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.desencriptarContenido > div > img{
+    width: 70%;
+}
+
+.h1Desencriptar{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    color: #343A40;
+    margin: 5% 10%;
+}
+
+.h2Desencriptar{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #495057;
+    margin: 0 10%;
+}
+
+.conCargar{
+    width: 100%;
+    height: 100%;
+}
+
+.h3Desencriptar{
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: left;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    color: #495057;
+    margin: 40px;
+    min-height: 750px;
+}
+
+#btnCopiar{
+    width: 85%;
+    height: 67px;
+    background: #fff;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    margin: 0 40px 40px 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #0A3871;
+}

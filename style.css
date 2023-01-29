@@ -68,6 +68,13 @@ form > div {
     font-weight: 400;
     font-size: 16px;
     color: #fff;
+    transition: 1s;
+}
+
+#btnEncriptar:hover{
+    background: #D8DFE8;
+    color: #0A3871;
+    cursor: pointer;
 }
 
 #btnDesencriptar{
@@ -85,6 +92,13 @@ form > div {
     font-weight: 400;
     font-size: 16px;
     color: #0A3871;
+    transition: 1s;
+}
+
+#btnDesencriptar:hover{
+    background: #0A3871;
+    color: #fff;
+    cursor: pointer;
 }
 
 .desencriptarContenido{
@@ -169,6 +183,12 @@ form > div {
     color: #0A3871;
 }
 
+#btnCopiar:hover{
+    background: #0A3871;
+    color: #fff;
+    cursor: pointer;
+}
+
 /* Responsive table 768x1174 */
 @media screen and (max-width: 768px) {
     .contenido{
@@ -184,6 +204,9 @@ form > div {
         width: 100%;
         margin-top: 40px;
         padding: 0 40px 0 40px;
+    }
+    #txtTexto{
+        width: 100%;
     }
 
     .desencriptarContenido{

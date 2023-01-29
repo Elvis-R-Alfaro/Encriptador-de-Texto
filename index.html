@@ -32,7 +32,7 @@
                 </div>
                 <div class="conCarga">
                     <p class="h3Desencriptar"></p>
-                    <input id="btnCopiar" type="button" value="Copiar">
+                    <input id="btnCopiar" onclick="copiar()" type="button" value="Copiar">
                 </div>
             </section>
         </div>
@@ -122,4 +122,11 @@
         pantallaConConTexto.style.display = "flex";
         document.querySelector(".h3Desencriptar").innerText = textoEncriptado;
     }
+
+    function copiar(){
+        let textoCopiar = document.querySelector(".h3Desencriptar").innerText;
+        navigator.clipboard.writeText(textoCopiar);
+        alert("Texto copiado");
+    }
+
 </script>

@@ -16,13 +16,12 @@
             </section>
             <section class="encriptarContenido">
                 <form action="">
-                    <textarea name="txtTexto" id="txtTexto" cols="43%" rows="15%" placeholder="Ingrese el texto aquí">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis recusandae porro soluta, sunt quidem quibusdam tempora ipsum est perspiciatis alias vel minus aspernatur reprehenderit nam in consequuntur totam! Saepe, nostrum?
-                    </textarea>
+                    <textarea name="txtTexto" id="txtTexto" cols="43%" rows="15%" placeholder="Ingrese el texto aquí">Hola mundo</textarea>
                     <div>
                         <img class="vectorImg" src="img/Vector.png" alt=""><p class="alertaTexto">Solo letras minúsculas y sin acento</p>
                     </div>
                     <input type="button" onclick="encriptar()" id="btnEncriptar" value="Encriptar">
-                    <input type="button" id="btnDesencriptar" value="Desencriptar">
+                    <input type="button" onclick="desencriptar()" id="btnDesencriptar" value="Desencriptar">
                 </form>
             </section>
             <section class="desencriptarContenido">
@@ -32,7 +31,7 @@
                     <p class="h2Desencriptar">Ingrese el texto que desees encriptar o desencriptar</p>
                 </div>
                 <div class="conCarga">
-                    <p class="h3Desencriptar">periores quaerat veniam quis illum eveniet expedita doloribus. Ea, modi porro? cupiditate perspiciatis ullam nulla impedit, accusantium hic neque voluptatum tenetur dignissimos dolor, fuga quod. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea ut praesentium debitis? Ex laboriosam fugiat, ab blanditiis optio voluptatem in. Alias a nihil modi consequatur tenetur hic ipsum velit voluptatum.</p>
+                    <p class="h3Desencriptar"></p>
                     <input id="btnCopiar" type="button" value="Copiar">
                 </div>
             </section>
@@ -43,7 +42,84 @@
 </html>
 
 <script>
+    const texto = document.getElementById("txtTexto"); 
+
+    const pantallaDefault = document.querySelector(".sinCargar");
+    const pantallaConConTexto = document.querySelector(".conCarga");
+
+    let claves = {
+        'a' : 'ai',
+        'e' : 'enter',
+        'i' : 'imes',
+        'o' : 'ober',
+        'u' : 'ufat',
+    }
+
     function encriptar(){
-        alert("Encriptar");
+        if(texto.value == ""){
+            pantallaDefault.style.display = "flex";
+            pantallaConConTexto.style.display = "none";
+            alert("Ingrese un texto");
+            return;
+        }
+
+        let letra = texto.value.split('');
+        for(let i = 0; i <= letra.length; i++){
+
+            let letraActual = letra[i];
+
+            if(claves[letraActual]){
+                letra[i] = claves[letraActual];
+            }
+        };
+
+        let textoEncriptado = letra.join('');
+        console.log(textoEncriptado);
+
+        pantallaDefault.style.display = "none";
+        pantallaConConTexto.style.display = "flex";
+        document.querySelector(".h3Desencriptar").innerText = textoEncriptado;
+
+    }
+
+    function desencriptar(){
+        if(texto.value == ""){
+            pantallaConConTexto.style.display = "none";
+            pantallaDefault.style.display = "flex";
+            alert("Ingrese un texto");
+            return;
+        }
+
+        let letra = texto.value.split('');
+        let coincide = false;
+
+        for(let i = 0; i <= letra.length; i++){
+
+            let letraActual = letra[i];
+            if(claves[letraActual]){
+                for(let j = 1; j <= claves[letraActual].length; j++){;
+                    if(letra[i+j] === claves[letraActual][j]){
+                        coincide = true;
+                    }
+                    else{
+                        break;
+                    }                    
+                }
+
+                if(coincide){
+                    letra[i] = letraActual;
+                    letra.splice((i+1), (claves[letraActual].length-1));
+                }
+
+            }
+
+        };
+
+        let textoEncriptado = letra.join('');
+        console.log(textoEncriptado);
+
+        pantallaDefault.style.display = "none";
+        pantallaConConTexto.style.display = "flex";
+        document.querySelector(".h3Desencriptar").innerText = textoEncriptado;
     }
 </script>

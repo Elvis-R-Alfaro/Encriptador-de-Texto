@@ -56,12 +56,9 @@
     }
 
     function encriptar(){
-        if(texto.value == ""){
-            pantallaDefault.style.display = "flex";
-            pantallaConConTexto.style.display = "none";
-            alert("Ingrese un texto");
+        if(validarTextoVacio()){
             return;
-        }
+        };
 
         let letra = texto.value.split('');
         for(let i = 0; i <= letra.length; i++){
@@ -75,20 +72,14 @@
 
         let textoEncriptado = letra.join('');
         console.log(textoEncriptado);
-
-        pantallaDefault.style.display = "none";
-        pantallaConConTexto.style.display = "flex";
-        document.querySelector(".h3Desencriptar").innerText = textoEncriptado;
+        cargarTexto(textoEncriptado);     
 
     }
 
     function desencriptar(){
-        if(texto.value == ""){
-            pantallaConConTexto.style.display = "none";
-            pantallaDefault.style.display = "flex";
-            alert("Ingrese un texto");
+        if(validarTextoVacio()){
             return;
-        }
+        };
 
         let letra = texto.value.split('');
         let coincide = false;
@@ -115,18 +106,32 @@
 
         };
 
-        let textoEncriptado = letra.join('');
-        console.log(textoEncriptado);
-
-        pantallaDefault.style.display = "none";
-        pantallaConConTexto.style.display = "flex";
-        document.querySelector(".h3Desencriptar").innerText = textoEncriptado;
+        let textoDesencriptado = letra.join('');
+        console.log(textoDesencriptado);
+        cargarTexto(textoDesencriptado);
+        
     }
 
     function copiar(){
         let textoCopiar = document.querySelector(".h3Desencriptar").innerText;
         navigator.clipboard.writeText(textoCopiar);
         alert("Texto copiado");
+    }
+
+    function cargarTexto(texto){
+        pantallaDefault.style.display = "none";
+        pantallaConConTexto.style.display = "flex";
+        document.querySelector(".h3Desencriptar").innerText = texto;
+    }
+
+    function validarTextoVacio(){
+        if(texto.value == ""){
+            pantallaDefault.style.display = "flex";
+            pantallaConConTexto.style.display = "none";
+            alert("Ingrese un texto");
+            return true;
+        }
+        return false;
     }
 
 </script>
